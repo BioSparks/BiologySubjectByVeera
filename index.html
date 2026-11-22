@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BioSpark | Smart Science Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>🌱 BioSpark</h2>
+  <div class="header-actions">
+    <button type="button" id="adminLoginBtn">Admin Login</button>
+    <button type="button" id="adminLogoutBtn" class="hidden">Logout</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Welcome to BioSpark!</h1>
+    <h2>Smart Science Learning</h2>
+    <p>Explore • Learn • Discover</p>
+    <p>Study Materials for Classes 6 to 10</p>
+  </section>
+
+  <div class="container">
+
+    <section id="selectionView">
+      <h2>Select Your Class</h2>
+      <div class="class-grid">
+        <button class="class-card" data-class="6">Class 6<small>Science</small></button>
+        <button class="class-card" data-class="7">Class 7<small>Science</small></button>
+        <button class="class-card" data-class="8">Class 8<small>Biology</small></button>
+        <button class="class-card" data-class="9">Class 9<small>Biology</small></button>
+        <button class="class-card" data-class="10">Class 10<small>Biology</small></button>
+      </div>
+    </section>
+
+    <section id="mediumSection" class="hidden">
+      <button type="button" class="back-button" id="backToClasses">← Back to classes</button>
+      <h2>Choose Medium</h2>
+      <p id="subjectName" class="subject-label"></p>
+      <div class="medium-grid">
+        <button type="button" data-medium="Telugu">తెలుగు మాధ్యమం</button>
+        <button type="button" data-medium="English">English Medium</button>
+      </div>
+    </section>
+
+    <section id="categorySection" class="hidden">
+      <button type="button" class="back-button" id="backToMedium">← Back to medium</button>
+      <h2>Select Study Material</h2>
+      <div class="category-grid">
+        <button type="button" data-category="notes">📘 Chapter-wise Notes</button>
+        <button type="button" data-category="diagrams">🧬 Diagrams</button>
+        <button type="button" data-category="experiments">🔬 Science Experiments / Projects</button>
+        <button type="button" data-category="quiz">📝 Quiz / Online Test</button>
+        <button type="button" data-category="qa">📚 Important Questions & Answers</button>
+        <button type="button" data-category="videos">▶ YouTube Video Links</button>
+      </div>
+    </section>
+
+    <section id="materialsView" class="hidden">
+      <button type="button" class="back-button" id="backToCategories">← Back to categories</button>
+      <h2 id="materialsTitle">Study Materials</h2>
+      <div id="materialsList"></div>
+    </section>
+
+    <section id="adminPanel" class="hidden">
+      <h2>Administrator Upload Panel</h2>
+      <p class="admin-note">
+        Add Google Drive PDF links, website links or YouTube links.
+        PDF files are stored in Google Drive.
+      </p>
+
+      <form id="uploadForm">
+        <label for="uploadClass">Select Class</label>
+        <select id="uploadClass" required>
+          <option value="6">Class 6</option>
+          <option value="7">Class 7</option>
+          <option value="8">Class 8</option>
+          <option value="9">Class 9</option>
+          <option value="10">Class 10</option>
+        </select>
+
+        <label for="uploadMedium">Select Medium</label>
+        <select id="uploadMedium" required>
+          <option value="Telugu">Telugu</option>
+          <option value="English">English</option>
+        </select>
+
+        <label for="uploadCategory">Select Category</label>
+        <select id="uploadCategory" required>
+          <option value="notes">Chapter-wise Notes</option>
+          <option value="diagrams">Diagrams</option>
+          <option value="experiments">Science Experiments / Projects</option>
+          <option value="quiz">Quiz / Online Test</option>
+          <option value="qa">Important Questions & Answers</option>
+          <option value="videos">YouTube Video Links</option>
+        </select>
+
+        <label for="uploadTitle">Material Title</label>
+        <input type="text" id="uploadTitle"
+          placeholder="Example: Chapter 1 - Food" required>
+
+        <label for="uploadType">Link Type</label>
+        <select id="uploadType" required>
+          <option value="pdf">Google Drive PDF</option>
+          <option value="website">Website Link</option>
+          <option value="youtube">YouTube Video Link</option>
+        </select>
+
+        <label for="uploadUrl">Paste Sharing / Website / YouTube Link</label>
+        <input type="url" id="uploadUrl"
+          placeholder="https://..." required>
+
+        <button type="submit" id="uploadSubmit">Add Material</button>
+        <p id="uploadStatus" role="status"></p>
+      </form>
+    </section>
+
+  </div>
+</main>
+
+<div id="loginModal" class="modal hidden">
+  <div class="modal-content">
+    <button type="button" id="closeLogin"
+      class="close" aria-label="Close">×</button>
+
+    <h2>BioSpark Administrator Login</h2>
+
+    <form id="loginForm">
+      <label for="adminEmail">Email</label>
+      <input type="email" id="adminEmail"
+        required placeholder="Admin email">
+
+      <label for="adminPassword">Password</label>
+      <input type="password" id="adminPassword"
+        required placeholder="Password">
+
+      <button type="submit">Login</button>
+      <p id="loginStatus" role="status"></p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>🌱 BioSpark | Smart Science Learning | Classes 6 to 10</p>
+  <p>Explore • Learn • Discover</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
+
